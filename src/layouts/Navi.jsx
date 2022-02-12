@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CartSummary from './CartSummary'
-import { Navbar,  Nav,NavDropdown,Button,Container } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import SignedIn from './SignedIn';
+import SignOut from './SignOut';
 export default function Navi() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    function handleSignOut(params) {
+        setIsAuthenticated(false)
+    }
+    function handleSignIn(params) {
+        setIsAuthenticated(true)
+    }
     return (
 
         <div>
@@ -12,11 +21,11 @@ export default function Navi() {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-                            <NavDropdown class=" ml-4" title="Dropdown" id="collasible-nav-dropdown">
-                               <CartSummary></CartSummary>
-                            </NavDropdown>
-                            <Button href="#">Sign Up</Button> 
+                            <Nav.Link style={{ marginRight: "30em" }} href="#pricing">Pricing</Nav.Link>
+                            
+                            <CartSummary />
+                            {isAuthenticated ? <SignedIn signOut={handleSignOut} />:<SignOut signIn={handleSignIn} />}
+                            
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
