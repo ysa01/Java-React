@@ -3,10 +3,13 @@ import CartSummary from './CartSummary'
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import SignedIn from './SignedIn';
 import SignOut from './SignOut';
+import { useNavigate } from 'react-router-dom';
 export default function Navi() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const history = useNavigate()
     function handleSignOut(params) {
         setIsAuthenticated(false)
+        history("/")
     }
     function handleSignIn(params) {
         setIsAuthenticated(true)
