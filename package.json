@@ -16,6 +16,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "react-toastify": "^8.2.0",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "semantic-ui-css": "^2.4.1",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-react-html-attrs": "^3.0.5"
   }
 }
