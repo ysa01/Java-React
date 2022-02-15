@@ -6,7 +6,7 @@ import SignOut from './SignOut';
 import { useNavigate } from 'react-router-dom';
 export default function Navi() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
-    const history = useNavigate()
+    const history = useNavigate() // useHistory de kullanıla bilir kütüphanede yoktu sürüm kaynaklı galiba,
     function handleSignOut(params) {
         setIsAuthenticated(false)
         history("/")

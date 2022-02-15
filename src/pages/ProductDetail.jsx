@@ -4,12 +4,12 @@ import { useParams } from 'react-router-dom'
 import ProductService from '../serveces/productService';
 
 export default function ProductDetail() {
-  let id= useParams();
-
-  const[product, setProduct] = useState([]);
+ // let id= useParams(); // object olarak veriyor onun için id yi paranteze alıyoruz distract ediyoruz.
+    let {id}=useParams();
+  const[product, setProduct] = useState({});
 useEffect(() => {
     let productService = new ProductService()
-    productService.getByProductName(id).then(result=>setProduct(result.data.data),[]) 
+    productService.getByProductName(id).then(result=>setProduct(result.data.data)) 
 }) 
   return (
     <div>

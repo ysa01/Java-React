@@ -9,8 +9,8 @@ export default  function ProductList() {
 const[products, setProducts] = useState([]);
 useEffect(() => {
     let productService = new ProductService()
-    productService.getProducts().then(result=>setProducts(result.data.data),[])
-})
+    productService.getProducts().then(result=>setProducts(result.data.data))
+},[])
 
     return (
         <div>
@@ -30,7 +30,7 @@ useEffect(() => {
                    products.map((product) =>(
                     <tr key={product.id}>
                         <td>{product.id}</td>
-                        <td><Link to={`/products/${product.id}`}>{product.productName}</Link></td>
+                        <td><Link to={"/products/"+product.id}>{product.productName}</Link></td>
                         <td>{product.unitPrice}</td>
                         <td>{product.unitsInStock}</td>
                         <td>{product.quantityPerUnit}</td>
